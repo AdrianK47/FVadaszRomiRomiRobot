@@ -13,13 +13,12 @@ public class MotorSubsystem extends SubsystemBase {
   /** Creates a new MotorSubsystem. */
   TalonFX motor1;
   public MotorSubsystem() {
-    motor1 = new TalonFX(8,"drivetrain");
+    motor1 = new TalonFX(0, "drivetrain");
   }
-
   public void moveMotor(double s){
     motor1.set(s);
   }
-
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

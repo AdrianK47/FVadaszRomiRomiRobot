@@ -17,7 +17,6 @@ public class MotorCommand extends Command {
     // Use addRequirements() here to declare subsystem dependencies.
     m_motorsubsystem = new MotorSubsystem();
     joystick = j;
-
   }
 
   // Called when the command is initially scheduled.
