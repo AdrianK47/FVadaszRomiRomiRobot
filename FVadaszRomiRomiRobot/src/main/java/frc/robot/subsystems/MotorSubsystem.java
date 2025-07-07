@@ -4,14 +4,20 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
+
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class MotorSubsystem extends SubsystemBase {
   /** Creates a new MotorSubsystem. */
-  Talon motor1;
+  TalonFX motor1;
   public MotorSubsystem() {
-    motor1 = new Talon(0)
+    motor1 = new TalonFX(8,"drivetrain");
+  }
+
+  public void moveMotor(double s){
+    motor1.set(s);
   }
 
   @Override
