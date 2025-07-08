@@ -13,7 +13,7 @@ public class MotorSubsystem extends SubsystemBase {
   /** Creates a new MotorSubsystem. */
   TalonFX motor1;
   public MotorSubsystem() {
-    motor1 = new TalonFX(0, "drivetrain");
+    motor1 = new TalonFX(2, "Drivetrain");
   }
   public void moveMotor(double s){
     motor1.set(s);

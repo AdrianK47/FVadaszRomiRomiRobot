@@ -6,17 +6,17 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.MotorSubsystem;
+import frc.robot.subsystems.PIDSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class MotorCommand extends Command {
-  /** Creates a new MotorCommand. */
-  MotorSubsystem m_motorsubsystem;
-  Joystick joystick;
-  public MotorCommand(MotorSubsystem motorSubsystem, Joystick j) {
+public class PIDCommand extends Command {
+  /** Creates a new PIDCommand. */
+  PIDSubsystem m_PIDSubsystem;
+  Joystick stick;
+  public PIDCommand(PIDSubsystem pidsubsystem, Joystick stick) {
     // Use addRequirements() here to declare subsystem dependencies.
-    m_motorsubsystem = motorSubsystem;
-    joystick = j;
+    m_PIDSubsystem = pidsubsystem;
+    this.stick = stick;
   }
 
   // Called when the command is initially scheduled.
@@ -26,8 +26,7 @@ public class MotorCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.println("testing");
-    m_motorsubsystem.moveMotor(joystick.getRawAxis(1));
+    m_PIDSubsystem.turnMotor(stick.getDirectionDegrees());
   }
 
   // Called once the command ends or is interrupted.

@@ -8,8 +8,10 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.MotorCommand;
+import frc.robot.commands.PIDCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.MotorSubsystem;
+import frc.robot.subsystems.PIDSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,16 +31,21 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
-  private final MotorSubsystem m_motorsubsystem;
-  private final Joystick joystick;
-  private final MotorCommand m_motorCommand;
+  MotorSubsystem m_motorsubsystem;
+  Joystick joystick;
+  MotorCommand m_motorCommand;
+  PIDSubsystem m_PIDSubsystem;
+  PIDCommand m_PIDCommand;
+  Joystick stick;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     m_motorsubsystem = new MotorSubsystem();
     joystick = new Joystick(0);
-    m_motorCommand = new MotorCommand(joystick);
+    m_motorCommand = new MotorCommand(m_motorsubsystem,joystick);
+    m_PIDSubsystem = new PIDSubsystem();
+    m_PIDCommand = new PIDCommand(m_PIDSubsystem, stick);
     configureBindings();
   }
 
@@ -72,6 +79,6 @@ public class RobotContainer {
   }
 
   public Command getTelopCommand(){
-    return m_motorCommand;
+    return m_PIDCommand;
   }
 }
