@@ -27,6 +27,7 @@ public class PIDCommand extends Command {
   @Override
   public void execute() {
     m_PIDSubsystem.turnMotor(stick.getDirectionDegrees());
+    System.out.println("Joystick degrees: " + (stick.getDirectionDegrees()));
   }
 
   // Called once the command ends or is interrupted.

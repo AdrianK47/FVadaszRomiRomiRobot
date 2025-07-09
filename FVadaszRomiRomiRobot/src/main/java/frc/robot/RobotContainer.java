@@ -14,6 +14,7 @@ import frc.robot.subsystems.MotorSubsystem;
 import frc.robot.subsystems.PIDSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -45,7 +46,7 @@ public class RobotContainer {
     joystick = new Joystick(0);
     m_motorCommand = new MotorCommand(m_motorsubsystem,joystick);
     m_PIDSubsystem = new PIDSubsystem();
-    m_PIDCommand = new PIDCommand(m_PIDSubsystem, stick);
+    m_PIDCommand = new PIDCommand(m_PIDSubsystem, joystick);
     configureBindings();
   }
 
