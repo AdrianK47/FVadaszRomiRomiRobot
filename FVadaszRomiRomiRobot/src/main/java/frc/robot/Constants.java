@@ -13,7 +13,10 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+  public static class SwerveConstants {
+    public static final double frontLeftDegreeOffset = 186.3;
+    public static final double frontRightDegreeOffset = 184.6;
+    public static final double backLeftDegreeOffset = 180.1;
+    public static final double backRightDegreeOffset = 180.4;
   }
 }

@@ -15,9 +15,6 @@ public class MotorSubsystem extends SubsystemBase {
   public MotorSubsystem() {
     motor1 = new TalonFX(2, "Drivetrain");
   }
-  public void moveMotor(double s){
-    motor1.set(s);
-  }
   
   @Override
   public void periodic() {

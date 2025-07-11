@@ -27,7 +27,7 @@ public class MotorCommand extends Command {
   @Override
   public void execute() {
     System.out.println("testing");
-    m_motorsubsystem.moveMotor(joystick.getRawAxis(1));
+    //m_motorsubsystem.moveMotor(joystick.getRawAxis(1));
   }
 
   // Called once the command ends or is interrupted.
